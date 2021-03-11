@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_auth_adfs',
+    # 'django_auth_adfs',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django_auth_adfs.middleware.LoginRequiredMiddleware',
+    # 'django_auth_adfs.middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'shodh.urls'
@@ -82,26 +82,26 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-AUTHENTICATION_BACKENDS = (
-    'django_auth_adfs.backend.AdfsAuthCodeBackend',
-)
-
-AUTH_ADFS = {
-    "SERVER": "http://localhost",
-    "CLIENT_ID": "561f77d8-c6b6-4930-b543-ef5c6641250f",
-    "RELYING_PARTY_ID": "Login-shodh",
-    # Make sure to read the documentation about the AUDIENCE setting
-    # when you configured the identifier as a URL!
-    "AUDIENCE": "microsoft:identityserver:your-RelyingPartyTrust-identifier",
-    "CA_BUNDLE": "/path/to/ca-bundle.pem",
-    "CLAIM_MAPPING": {"first_name": "given_name",
-                      "last_name": "family_name",
-                      "email": "email"},
-}
-
-# Configure django to redirect users to the right URL for login
-LOGIN_URL = "django_auth_adfs:login"
-LOGIN_REDIRECT_URL = "/"
+# AUTHENTICATION_BACKENDS = (
+#     'django_auth_adfs.backend.AdfsAuthCodeBackend',
+# )
+#
+# AUTH_ADFS = {
+#     "SERVER": "http://localhost",
+#     "CLIENT_ID": "561f77d8-c6b6-4930-b543-ef5c6641250f",
+#     "RELYING_PARTY_ID": "Login-shodh",
+#     # Make sure to read the documentation about the AUDIENCE setting
+#     # when you configured the identifier as a URL!
+#     "AUDIENCE": "microsoft:identityserver:your-RelyingPartyTrust-identifier",
+#     "CA_BUNDLE": "/path/to/ca-bundle.pem",
+#     "CLAIM_MAPPING": {"first_name": "given_name",
+#                       "last_name": "family_name",
+#                       "email": "email"},
+# }
+#
+# # Configure django to redirect users to the right URL for login
+# LOGIN_URL = "django_auth_adfs:login"
+# LOGIN_REDIRECT_URL = "/"
 
 
 # Password validation
@@ -122,7 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CUSTOM_FAILED_RESPONSE_VIEW = 'dot.path.to.custom.views.login_failed'
+# CUSTOM_FAILED_RESPONSE_VIEW = 'dot.path.to.custom.views.login_failed'
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
